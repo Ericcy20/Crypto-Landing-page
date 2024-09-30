@@ -15,7 +15,7 @@
     <!-- Header -->
     <header>
         <div id="logo">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img class="img_size" src="./img/logo-white.png" alt="">
             </a>
         </div>
@@ -25,7 +25,7 @@
                     <img class="img_size" src="./img/logo-white.png" alt="">
                 </a>
             </ul>
-            <li class="nav-link"><a href="./index.html">Home</a></li>
+            <li class="nav-link"><a href="./index.php">Home</a></li>
             <li class="nav-link"><a href="./aboutus.php">About Us</a></li>
             <li class="nav-link"><a href="./contact.php">Contact</a></li>
             <li class="nav-link"><a href="./Login.html">Login</a></li>
