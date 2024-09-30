@@ -16,7 +16,7 @@
     <!-- Header -->
     <header>
         <div id="logo">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img class="img_size" src="./img/logo-white.png" alt="">
             </a>
         </div>
@@ -63,105 +63,44 @@
     </section>
 
     <!-- Carousel -->
-<section>
-    <div class="carouselContainer">
-        <!-- Repeatable Carousel Items Start -->
-        <div class="eachCarousel eachCarouselBorder">
-            <img src="./img/bitcoin-icon.png" alt="Bitcoin Icon">
-            <article class="carouselDesc">
-                <h1 class="carouselTitle">Bitcoin</h1>
-                <p class="carouselPara">Bitcoin is an innovative payment network</p>
-                <div class="carouselPrice">
-                    <h3>$34,000</h3>
-                    <span class="rect"></span>
-                    <h3 class="carouselDiscount">15%</h3>
-                </div>
-                <button class="btn carouselBtn">Buy & Trade</button>
-            </article>
+    <section>
+        <div class="carouselContainer">
+            <!-- Repeatable Carousel Items Start -->
+            <?php
+            $carousels = [
+                ["img/bitcoin-icon.png", "Bitcoin", "Bitcoin is an innovative payment network", "$34,000", "15%"],
+                ["img/ethereum-icon.png", "Ethereum", "Ethereum is open-source blockchain currency", "$25,600", "9%"],
+                ["img/tether-icon.png", "Tether", "Tether is a stable coin cryptocurrency", "$7,000", "4%"],
+                ["img/bitcoin-icon.png", "Bitcoin", "Bitcoin is an innovative payment network", "$34,000", "15%"],
+                ["img/ethereum-icon.png", "Ethereum", "Ethereum is open-source blockchain currency", "$25,600", "9%"],
+                ["img/tether-icon.png", "Tether", "Tether is a stable coin cryptocurrency", "$7,000", "4%"]
+            ];
+
+            foreach ($carousels as $index => $carousel) {
+                echo '
+                <div class="eachCarousel' . ($index === 0 ? ' eachCarouselBorder' : '') . '">
+                    <img src="./img/' . $carousel[0] . '" alt="">
+                    <article class="carouselDesc">
+                        <h1 class="carouselTitle">' . $carousel[1] . '</h1>
+                        <p class="carouselPara">' . $carousel[2] . '</p>
+                        <div class="carouselPrice">
+                            <h3>' . $carousel[3] . '</h3>
+                            <span class="rect"></span>
+                            <h3 class="carouselDiscount">' . $carousel[4] . '</h3>
+                        </div>
+                        <button class="btn carouselBtn">Buy & Trade</button>
+                    </article>
+                </div>';
+            }
+            ?>
+            <!-- Repeatable Carousel Items End -->
         </div>
-
-        <div class="eachCarousel">
-            <img src="./img/ethereum-icon.png" alt="Ethereum Icon">
-            <article class="carouselDesc">
-                <h1 class="carouselTitle">Ethereum</h1>
-                <p class="carouselPara">Ethereum is open-source blockchain currency</p>
-                <div class="carouselPrice">
-                    <h3>$25,600</h3>
-                    <span class="rect"></span>
-                    <h3 class="carouselDiscount">9%</h3>
-                </div>
-                <button class="btn carouselBtn">Buy & Trade</button>
-            </article>
+        <div class="carouselIndicator">
+            <?php for ($i = 0; $i < count($carousels); $i++) {
+                echo '<div class="indicator' . ($i === 0 ? ' activeIndicator' : '') . '" onclick="slideCarousel(' . $i . ')"></div>';
+            } ?>
         </div>
-
-        <div class="eachCarousel">
-            <img src="./img/tether-icon.png" alt="Tether Icon">
-            <article class="carouselDesc">
-                <h1 class="carouselTitle">Tether</h1>
-                <p class="carouselPara">Tether is a stable coin cryptocurrency</p>
-                <div class="carouselPrice">
-                    <h3>$7,000</h3>
-                    <span class="rect"></span>
-                    <h3 class="carouselDiscount">4%</h3>
-                </div>
-                <button class="btn carouselBtn">Buy & Trade</button>
-            </article>
-        </div>
-
-        <div class="eachCarousel">
-            <img src="./img/bitcoin-icon.png" alt="Bitcoin Icon">
-            <article class="carouselDesc">
-                <h1 class="carouselTitle">Bitcoin</h1>
-                <p class="carouselPara">Bitcoin is an innovative payment network</p>
-                <div class="carouselPrice">
-                    <h3>$34,000</h3>
-                    <span class="rect"></span>
-                    <h3 class="carouselDiscount">15%</h3>
-                </div>
-                <button class="btn carouselBtn">Buy & Trade</button>
-            </article>
-        </div>
-
-        <div class="eachCarousel">
-            <img src="./img/ethereum-icon.png" alt="Ethereum Icon">
-            <article class="carouselDesc">
-                <h1 class="carouselTitle">Ethereum</h1>
-                <p class="carouselPara">Ethereum is open-source blockchain currency</p>
-                <div class="carouselPrice">
-                    <h3>$25,600</h3>
-                    <span class="rect"></span>
-                    <h3 class="carouselDiscount">9%</h3>
-                </div>
-                <button class="btn carouselBtn">Buy & Trade</button>
-            </article>
-        </div>
-
-        <div class="eachCarousel">
-            <img src="./img/tether-icon.png" alt="Tether Icon">
-            <article class="carouselDesc">
-                <h1 class="carouselTitle">Tether</h1>
-                <p class="carouselPara">Tether is a stable coin cryptocurrency</p>
-                <div class="carouselPrice">
-                    <h3>$7,000</h3>
-                    <span class="rect"></span>
-                    <h3 class="carouselDiscount">4%</h3>
-                </div>
-                <button class="btn carouselBtn">Buy & Trade</button>
-            </article>
-        </div>
-        <!-- Repeatable Carousel Items End -->
-    </div>
-
-    <div class="carouselIndicator">
-        <div class="indicator activeIndicator" onclick="slideCarousel(0)"></div>
-        <div class="indicator" onclick="slideCarousel(1)"></div>
-        <div class="indicator" onclick="slideCarousel(2)"></div>
-        <div class="indicator" onclick="slideCarousel(3)"></div>
-        <div class="indicator" onclick="slideCarousel(4)"></div>
-        <div class="indicator" onclick="slideCarousel(5)"></div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Processes -->
     <section class="gridSection">
@@ -228,7 +167,7 @@
                 <div>
                     <h1 class="marketTitle">Supporting</h1>
                     <p class="darkPara">
-                        Dont worry if youre new to crypto and digital currencies, Zenith makes setting up a
+                        Don’t worry if you’re new to crypto and digital currencies – Skrill makes setting up a
                         cryptocurrency wallet easy.
                     </p>
                 </div>
@@ -244,7 +183,7 @@
                 </div>
             </div>
         </div>
-        <div class="sectionPic marketspicSection" >
+        <div class="sectionPic marketspicSection" id="sectionPic">
             <h1 class="marketspicHeader">CRYPTOCURRENCY</h1>
             <div class="marketsPicContainer">
                 <div class="marketPic marketPic1">
